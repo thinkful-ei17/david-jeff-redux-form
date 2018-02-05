@@ -12,17 +12,21 @@ export class ReduxForm extends React.Component {
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <label htmlFor='tracking'>Tracking Number</label>
         <Field 
-          component='input' 
+          component={Input}
+          element="input"
           type='text' 
           name='tracking' 
           id='tracking' 
-          validate={[required, nonEmpty, exactlyFiveChars, mustBeNumber]} />
+          validate={[required, nonEmpty, exactlyFiveChars, mustBeNumber]} 
+          />
         <label htmlFor='issues'>What is your issue?</label>
         <Field 
-          component='select' 
+          component='select'
+          // element='select'
           name='issues' 
           id='issues'
-          validate={[required]}>
+          validate={[required]}
+          >
           <option value='hasNotArrived'>My delivery hasn't arrived</option>
           <option value='wrongItemDelivered'>The wrong item was delivered</option>
           <option value='partMissing'>Part of my order was missing</option>
@@ -30,7 +34,7 @@ export class ReduxForm extends React.Component {
           <option value='other'>Other (give details below)</option>
         </Field>
         <label htmlFor='details'>Give more details (optional)</label>
-        <Field component='text-area' type='text' name='details' id='details' />
+        <Field component='textarea' type='text' name='details' id='details' />
         <button>Submit</button>
       </form>
     );

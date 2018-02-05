@@ -3,7 +3,7 @@ export const required = value => (value ? undefined : 'Required');
 export const nonEmpty = value =>
     value.trim() !== '' ? undefined : 'Cannot be empty';
 export const exactlyFiveChars = value => value.length === 5 ? undefined: 'Must contain exactly 5 characters';
-export const mustBeNumber = value => typeof value === 'number' ? undefined: 'Must only contain numbers';
+export const mustBeNumber = value => value.match(/^[0-9]+$/) !== null ? undefined: 'Must only contain numbers';
 // Uses a regular expression (regex) to check whether it looks enough like an
 // email address.  Broken down:
 // ^ Matches the start the text
